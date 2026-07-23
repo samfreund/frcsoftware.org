@@ -3,3 +3,4 @@ package.json @frcsoftware/infra
 pnpm-workspace.yaml @frcsoftware/infra
 pnpm-lock.yaml @frcsoftware/infra
 coby.bara.sky @frcsoftware/infra
+.styles/** @frcsoftware/infra
