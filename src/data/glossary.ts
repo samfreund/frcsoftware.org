@@ -99,6 +99,13 @@ export const glossaryTerms: GlossaryTerm[] = [
         definition:
             'GitHub is like Google Drive, but for code. It hosts git repositories and allows for improved collaboration on projects through pull requests and issues',
     },
+
+    // Hardware
+    {
+        term: 'AprilTag',
+        definition:
+            'AprilTags are similar to QR codes, using a black and white pattern of squares. AprilTags, however, encode less information to allow for detection at greater ranges. In FRC, they are used for localization.',
+    },
 ];
 
 /**
