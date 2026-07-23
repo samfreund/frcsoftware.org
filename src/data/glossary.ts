@@ -99,6 +99,10 @@ export const glossaryTerms: GlossaryTerm[] = [
         definition:
             'GitHub is like Google Drive, but for code. It hosts git repositories and allows for improved collaboration on projects through pull requests and issues',
     },
+    {
+	term: 'Gradle',
+	definition: 'Gradle is a build tool that allows for automation when developing software. It can be used for compiling code, running tests, and many other tasks'
+    },
 
     // Hardware
     {
