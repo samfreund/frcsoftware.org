@@ -20,7 +20,7 @@ for (const { term, variants } of glossaryTerms) {
     const allForms = [term, ...(variants ?? [])];
 
     // Add full phrase variants with pipe syntax
-    allTerms.add(allForms.join('|'));
+    allTerms.add(allForms.join('\n'));
 
     // For multi-word terms, also add individual word variants
     // This handles Vale's tokenization which splits on spaces
