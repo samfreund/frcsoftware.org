@@ -142,7 +142,7 @@ Define a class named `IntakeLauncher` that implements `Mechanism`; then, add the
 
 Create new instances of the `IntakeLauncher` and `Feeder` classes.
 They should be
-public properties of the `Robot` class, so that they are accessible from opmodes.
+public properties of the `Robot` class, so that they are accessible from OpModes.
 Name them `intakeLauncher` and `feeder`, respectively.
 
 You also need to call `intakeLauncher.periodic();` and `feeder.periodic();`
@@ -156,10 +156,10 @@ Which method should it be?
 
 ### Task 5: Finish the teleop OpMode
 
-In the constructor of the teleop opmode (it should be in `MyTeleop.java`),
+In the constructor of the teleop OpMode (it should be in `MyTeleop.java`),
 create a private `CommandXboxController` instance named `xbox`.
 
-In your opmode constructor, define the following behavior:
+In your OpMode constructor, define the following behavior:
 
 1. While the `xbox.leftBumper()` trigger is active,
    run the `robot.intake.intake()` and `robot.feeder.intake()` commands.
