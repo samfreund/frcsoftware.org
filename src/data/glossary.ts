@@ -114,6 +114,12 @@ export const glossaryTerms: GlossaryTerm[] = [
             'An OpMode is an operator-selectable program that defines what the robot does during a particular mode of operation (autonomous, teleoperated, or utility)',
         variants: ['OpModes'],
     },
+    {
+        term: 'Teleoperated',
+        definition:
+            'The period of a match during which the driver is allowed to operate the robot',
+        variants: ['teleop'],
+    },
 
     // Hardware
     {
