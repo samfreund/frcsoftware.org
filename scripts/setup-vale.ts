@@ -39,7 +39,9 @@ for (const { term, variants } of glossaryTerms) {
     }
 }
 
-const lines = [...allTerms].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+const lines = [...allTerms].sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase()),
+);
 
 const content = lines.join('\n') + '\n';
 writeFileSync(OUTPUT, content);
