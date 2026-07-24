@@ -109,9 +109,10 @@ export const glossaryTerms: GlossaryTerm[] = [
             'Gradle is a build tool that allows for automation when developing software. It can be used for compiling code, running tests, and many other tasks',
     },
     {
-        term: 'Opmode',
+        term: 'OpMode',
         definition:
-            'An opmode is an operator-selectable program that defines what the robot does during a particular mode of operation (autonomous, teleoperated, or utility)',
+            'An OpMode is an operator-selectable program that defines what the robot does during a particular mode of operation (autonomous, teleoperated, or utility)',
+        variants: ['OpModes'],
     },
 
     // Hardware
