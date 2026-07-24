@@ -27,6 +27,9 @@ export interface GlossaryTerm {
      * @default false
      */
     caseSensitive?: boolean;
+    /**
+     * Other ways this term might appear in text (plurals, contractions, etc.)
+     */
     variants?: string[];
 }
 
@@ -104,6 +107,11 @@ export const glossaryTerms: GlossaryTerm[] = [
         term: 'Gradle',
         definition:
             'Gradle is a build tool that allows for automation when developing software. It can be used for compiling code, running tests, and many other tasks',
+    },
+    {
+        term: 'Opmode',
+        definition:
+            'An opmode is an operator-selectable program that defines what the robot does during a particular mode of operation (autonomous, teleoperated, or utility)',
     },
 
     // Hardware
