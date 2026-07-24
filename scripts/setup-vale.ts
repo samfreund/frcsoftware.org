@@ -18,25 +18,7 @@ const allTerms = new Set<string>();
 
 for (const { term, variants } of glossaryTerms) {
     const allForms = [term, ...(variants ?? [])];
-
-    // Add full phrase variants with pipe syntax
     allTerms.add(allForms.join('\n'));
-
-    // For multi-word terms, also add individual word variants
-    // This handles Vale's tokenization which splits on spaces
-    for (const form of allForms) {
-        const words = form.split(' ');
-        if (words.length > 1) {
-            const lastWord = words[words.length - 1];
-            // Add the last word (which might be pluralized/possessivized)
-            allTerms.add(lastWord);
-            // Also add the base last word without suffixes
-            const baseLastWord = term.split(' ').pop() || '';
-            if (baseLastWord !== lastWord) {
-                allTerms.add(baseLastWord);
-            }
-        }
-    }
 }
 
 const lines = [...allTerms].sort((a, b) =>
