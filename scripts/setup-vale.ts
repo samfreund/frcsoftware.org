@@ -13,14 +13,38 @@ if (!existsSync(OUTPUT_DIR)) {
     mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
-const terms = [...new Set(glossaryTerms.map(({ term }) => term))].sort((a, b) =>
-    a.toLowerCase().localeCompare(b.toLowerCase()),
-);
+// Collect all terms for the ignore list
+const allTerms = new Set<string>();
 
-const content = terms.join('\n') + '\n';
+for (const { term, variants } of glossaryTerms) {
+    const allForms = [term, ...(variants ?? [])];
+
+    // Add full phrase variants with pipe syntax
+    allTerms.add(allForms.join('|'));
+
+    // For multi-word terms, also add individual word variants
+    // This handles Vale's tokenization which splits on spaces
+    for (const form of allForms) {
+        const words = form.split(' ');
+        if (words.length > 1) {
+            const lastWord = words[words.length - 1];
+            // Add the last word (which might be pluralized/possessivized)
+            allTerms.add(lastWord);
+            // Also add the base last word without suffixes
+            const baseLastWord = term.split(' ').pop() || '';
+            if (baseLastWord !== lastWord) {
+                allTerms.add(baseLastWord);
+            }
+        }
+    }
+}
+
+const lines = [...allTerms].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+const content = lines.join('\n') + '\n';
 writeFileSync(OUTPUT, content);
 
-console.log(`Wrote ${terms.length} glossary terms to ${OUTPUT}.`);
+console.log(`Wrote ${lines.length} glossary terms to ${OUTPUT}.`);
 
 // If not already present, download dictionary
 async function downloadFile(url: string, path: string) {

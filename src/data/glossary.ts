@@ -27,6 +27,7 @@ export interface GlossaryTerm {
      * @default false
      */
     caseSensitive?: boolean;
+    variants?: string[];
 }
 
 export const glossaryTerms: GlossaryTerm[] = [
